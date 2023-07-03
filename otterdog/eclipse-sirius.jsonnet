@@ -18,6 +18,15 @@ orgs.newOrg('eclipse-sirius') {
     twitter_username: "EclipseSirius",
     web_commit_signoff_required: false,
   },
+  webhooks+: [
+    orgs.newOrgWebhook('https://ci.eclipse.org/sirius/github-webhook/') {
+      content_type: "json",
+      events+: [
+        "pull_request",
+        "push"
+      ],
+    },
+  ],
   _repositories+:: [
     orgs.newRepo('sirius-components') {
       allow_merge_commit: false,
