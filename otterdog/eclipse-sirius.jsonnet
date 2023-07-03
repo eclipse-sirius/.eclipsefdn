@@ -60,6 +60,21 @@ orgs.newOrg('eclipse-sirius') {
         },
       ],
     },
+    orgs.newRepo('sirius-desktop') {
+      allow_merge_commit: false,
+      allow_squash_merge: false,
+      default_branch: "master",
+      description: "Sirius Desktop: desktop-based graphical modelers for dedicated DSLs (sample application)",
+      homepage: "https://www.eclipse.org/sirius/getstarted.html",
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('master') {
+          required_approving_review_count: 1,
+          required_status_checks: [],
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
+    },
     orgs.newRepo('sirius-emf-json') {
       allow_merge_commit: false,
       allow_squash_merge: false,
