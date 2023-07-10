@@ -77,7 +77,7 @@ orgs.newOrg('eclipse-sirius') {
       homepage: "https://www.eclipse.org/sirius/",
       branch_protection_rules: [
         orgs.newBranchProtectionRule('master') {
-          required_approving_review_count: 1,
+          required_approving_review_count: 0,
           requires_linear_history: true,
           requires_strict_status_checks: true,
         },
