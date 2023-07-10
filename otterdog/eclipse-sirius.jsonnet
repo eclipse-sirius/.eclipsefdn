@@ -74,6 +74,8 @@ orgs.newOrg('eclipse-sirius') {
       allow_squash_merge: false,
       default_branch: "master",
       description: "Sirius Desktop: desktop-based graphical modelers for dedicated DSLs",
+      has_projects: false,
+      has_wiki: false,
       homepage: "https://www.eclipse.org/sirius/",
       branch_protection_rules: [
         orgs.newBranchProtectionRule('master') {
