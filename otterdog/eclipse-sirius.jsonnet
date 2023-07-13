@@ -33,6 +33,7 @@ orgs.newOrg('eclipse-sirius') {
       allow_squash_merge: false,
       allow_update_branch: false,
       default_branch: "master",
+      dependabot_security_updates_enabled: true,
       description: "Reusable frontend and backend components for Sirius Web",
       homepage: "https://www.eclipse.org/sirius/sirius-web.html",
       secret_scanning: "disabled",
