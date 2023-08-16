@@ -28,7 +28,8 @@ orgs.newOrg('eclipse-sirius') {
     },
   ],
   _repositories+:: [
-    orgs.newRepo('sirius-components') {
+    orgs.newRepo('sirius-web') {
+      aliases: ['sirius-components'],
       allow_merge_commit: false,
       allow_squash_merge: false,
       allow_update_branch: false,
