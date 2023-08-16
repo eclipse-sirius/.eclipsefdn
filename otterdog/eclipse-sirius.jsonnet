@@ -107,24 +107,6 @@ orgs.newOrg('eclipse-sirius') {
       secret_scanning_push_protection: "disabled",
       web_commit_signoff_required: false,
     },
-    orgs.newRepo('sirius-web') {
-      allow_update_branch: false,
-      default_branch: "master",
-      dependabot_alerts_enabled: false,
-      description: "Sirius Web: cloud-based graphical modelers for dedicated DSLs (sample application)",
-      homepage: "https://www.eclipse.org/sirius/sirius-web.html",
-      secret_scanning: "disabled",
-      secret_scanning_push_protection: "disabled",
-      web_commit_signoff_required: false,
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('master') {
-          required_approving_review_count: 1,
-          required_status_checks: [],
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
-    },
     orgs.newRepo('sirius-website') {
       allow_merge_commit: false,
       allow_squash_merge: false,
