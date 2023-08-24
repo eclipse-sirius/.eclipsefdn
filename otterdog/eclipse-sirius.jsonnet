@@ -37,8 +37,6 @@ orgs.newOrg('eclipse-sirius') {
       dependabot_security_updates_enabled: true,
       description: "Reusable frontend and backend components for Sirius Web",
       homepage: "https://www.eclipse.org/sirius/sirius-web.html",
-      secret_scanning: "disabled",
-      secret_scanning_push_protection: "disabled",
       web_commit_signoff_required: false,
       webhooks: [
         orgs.newRepoWebhook('https://notify.travis-ci.org') {
@@ -95,8 +93,6 @@ orgs.newOrg('eclipse-sirius') {
       dependabot_alerts_enabled: false,
       description: "JSON-based EMF Resource implementation - part of Eclipse Sirius",
       homepage: "https://www.eclipse.org/sirius/sirius-web.html",
-      secret_scanning: "disabled",
-      secret_scanning_push_protection: "disabled",
       web_commit_signoff_required: false,
     },
     orgs.newRepo('sirius-specs') {
@@ -104,8 +100,6 @@ orgs.newOrg('eclipse-sirius') {
       default_branch: "master",
       description: "Specifications for changes to Eclipse Sirius",
       homepage: "",
-      secret_scanning: "disabled",
-      secret_scanning_push_protection: "disabled",
       web_commit_signoff_required: false,
     },
     orgs.newRepo('sirius-website') {
@@ -117,8 +111,6 @@ orgs.newOrg('eclipse-sirius') {
       has_projects: false,
       has_wiki: false,
       homepage: "https://www.eclipse.org/sirius",
-      secret_scanning: "disabled",
-      secret_scanning_push_protection: "disabled",
       web_commit_signoff_required: false,
     },
   ],
