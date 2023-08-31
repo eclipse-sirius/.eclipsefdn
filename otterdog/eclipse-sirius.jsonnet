@@ -10,8 +10,6 @@ orgs.newOrg('eclipse-sirius') {
     dependabot_security_updates_enabled_for_new_repositories: false,
     dependency_graph_enabled_for_new_repositories: false,
     description: "Sirius Web is a framework for building cloud graphical modelers for dedicated DSLs.",
-    members_can_change_repo_visibility: true,
-    members_can_delete_repositories: true,
     name: "Eclipse Sirius Web",
     packages_containers_internal: false,
     readers_can_create_discussions: true,
