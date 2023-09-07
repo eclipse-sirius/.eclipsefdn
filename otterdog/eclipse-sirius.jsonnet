@@ -5,7 +5,6 @@ orgs.newOrg('eclipse-sirius') {
     billing_email: "webmaster@eclipse.org",
     blog: "https://www.eclipse.org/sirius",
     default_repository_permission: "none",
-    default_workflow_permissions: "write",
     dependabot_alerts_enabled_for_new_repositories: false,
     dependabot_security_updates_enabled_for_new_repositories: false,
     dependency_graph_enabled_for_new_repositories: false,
@@ -15,6 +14,9 @@ orgs.newOrg('eclipse-sirius') {
     readers_can_create_discussions: true,
     twitter_username: "EclipseSirius",
     web_commit_signoff_required: false,
+    workflows+: {
+      default_workflow_permissions: "write",
+    },
   },
   webhooks+: [
     orgs.newOrgWebhook('https://ci.eclipse.org/sirius/github-webhook/') {
@@ -26,8 +28,40 @@ orgs.newOrg('eclipse-sirius') {
     },
   ],
   _repositories+:: [
+    orgs.newRepo('sirius-desktop') {
+      allow_merge_commit: false,
+      allow_squash_merge: false,
+      default_branch: "master",
+      description: "Sirius Desktop: desktop-based graphical modelers for dedicated DSLs",
+      has_projects: false,
+      has_wiki: false,
+      homepage: "https://www.eclipse.org/sirius/",
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('master') {
+          required_approving_review_count: 0,
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
+    },
+    orgs.newRepo('sirius-emf-json') {
+      allow_merge_commit: false,
+      allow_squash_merge: false,
+      allow_update_branch: false,
+      default_branch: "master",
+      dependabot_alerts_enabled: false,
+      description: "JSON-based EMF Resource implementation - part of Eclipse Sirius",
+      homepage: "https://www.eclipse.org/sirius/sirius-web.html",
+      web_commit_signoff_required: false,
+    },
+    orgs.newRepo('sirius-specs') {
+      allow_update_branch: false,
+      default_branch: "master",
+      description: "Specifications for changes to Eclipse Sirius",
+      homepage: "",
+      web_commit_signoff_required: false,
+    },
     orgs.newRepo('sirius-web') {
-      aliases: ['sirius-components'],
       allow_merge_commit: false,
       allow_squash_merge: false,
       allow_update_branch: false,
@@ -61,44 +95,10 @@ orgs.newOrg('eclipse-sirius') {
       branch_protection_rules: [
         orgs.newBranchProtectionRule('master') {
           required_approving_review_count: 1,
-          required_status_checks: [],
           requires_linear_history: true,
           requires_strict_status_checks: true,
         },
       ],
-    },
-    orgs.newRepo('sirius-desktop') {
-      allow_merge_commit: false,
-      allow_squash_merge: false,
-      default_branch: "master",
-      description: "Sirius Desktop: desktop-based graphical modelers for dedicated DSLs",
-      has_projects: false,
-      has_wiki: false,
-      homepage: "https://www.eclipse.org/sirius/",
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('master') {
-          required_approving_review_count: 0,
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
-    },
-    orgs.newRepo('sirius-emf-json') {
-      allow_merge_commit: false,
-      allow_squash_merge: false,
-      allow_update_branch: false,
-      default_branch: "master",
-      dependabot_alerts_enabled: false,
-      description: "JSON-based EMF Resource implementation - part of Eclipse Sirius",
-      homepage: "https://www.eclipse.org/sirius/sirius-web.html",
-      web_commit_signoff_required: false,
-    },
-    orgs.newRepo('sirius-specs') {
-      allow_update_branch: false,
-      default_branch: "master",
-      description: "Specifications for changes to Eclipse Sirius",
-      homepage: "",
-      web_commit_signoff_required: false,
     },
     orgs.newRepo('sirius-website') {
       allow_merge_commit: false,
