@@ -4,7 +4,6 @@ orgs.newOrg('eclipse-sirius') {
   settings+: {
     billing_email: "webmaster@eclipse.org",
     blog: "https://www.eclipse.org/sirius",
-    default_repository_permission: "none",
     dependabot_alerts_enabled_for_new_repositories: false,
     dependabot_security_updates_enabled_for_new_repositories: false,
     dependency_graph_enabled_for_new_repositories: false,
@@ -36,6 +35,9 @@ orgs.newOrg('eclipse-sirius') {
       has_projects: false,
       has_wiki: false,
       homepage: "https://www.eclipse.org/sirius/",
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
       branch_protection_rules: [
         orgs.newBranchProtectionRule('master') {
           required_approving_review_count: 0,
@@ -53,6 +55,9 @@ orgs.newOrg('eclipse-sirius') {
       description: "JSON-based EMF Resource implementation - part of Eclipse Sirius",
       homepage: "https://www.eclipse.org/sirius/sirius-web.html",
       web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
     },
     orgs.newRepo('sirius-specs') {
       allow_merge_commit: true,
@@ -62,6 +67,9 @@ orgs.newOrg('eclipse-sirius') {
       description: "Specifications for changes to Eclipse Sirius",
       homepage: "",
       web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
     },
     orgs.newRepo('sirius-web') {
       allow_squash_merge: false,
@@ -73,6 +81,9 @@ orgs.newOrg('eclipse-sirius') {
       has_discussions: true,
       homepage: "https://www.eclipse.org/sirius/sirius-web.html",
       web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
       webhooks: [
         orgs.newRepoWebhook('https://notify.travis-ci.org') {
           events+: [
@@ -113,6 +124,9 @@ orgs.newOrg('eclipse-sirius') {
       has_wiki: false,
       homepage: "https://www.eclipse.org/sirius",
       web_commit_signoff_required: false,
+      workflows+: {
+        enabled: false,
+      },
     },
   ],
 }
