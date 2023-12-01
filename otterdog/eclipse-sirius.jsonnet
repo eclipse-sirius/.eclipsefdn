@@ -143,5 +143,25 @@ orgs.newOrg('eclipse-sirius') {
         actions_can_approve_pull_request_reviews: false,
       },
     },
+    orgs.newRepo('sirius-legacy') {
+      allow_squash_merge: false,
+      default_branch: "master",
+      delete_branch_on_merge: false,
+      description: "Sirius Legacy: legacy (unmaintained) components from Sirius Desktop",
+      has_discussions: true,
+      has_projects: false,
+      has_wiki: false,
+      homepage: "https://www.eclipse.org/sirius/",
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('master') {
+          required_approving_review_count: 0,
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
+    },
   ],
 }
