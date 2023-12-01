@@ -128,5 +128,20 @@ orgs.newOrg('eclipse-sirius') {
         enabled: false,
       },
     },
+    orgs.newRepo('.github') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      web_commit_signoff_required: false,
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('master') {
+          requires_pull_request: false,
+          requires_linear_history: true,
+        },
+      ],
+      workflows+: {
+        actions_can_approve_pull_request_reviews: false,
+      },
+    },
   ],
 }
