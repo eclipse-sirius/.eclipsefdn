@@ -6,8 +6,8 @@ orgs.newOrg('eclipse-sirius') {
     dependabot_alerts_enabled_for_new_repositories: false,
     dependabot_security_updates_enabled_for_new_repositories: false,
     dependency_graph_enabled_for_new_repositories: false,
-    description: "Sirius Web is a framework for building cloud graphical modelers for dedicated DSLs.",
-    name: "Eclipse Sirius Web",
+    description: "Sirius is a framework for building graphical modelers for dedicated DSLs, either for the desktop or the web.",
+    name: "Eclipse Sirius",
     packages_containers_internal: false,
     readers_can_create_discussions: true,
     twitter_username: "EclipseSirius",
@@ -127,6 +127,41 @@ orgs.newOrg('eclipse-sirius') {
       workflows+: {
         enabled: false,
       },
+    },
+    orgs.newRepo('.github') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      web_commit_signoff_required: false,
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('master') {
+          requires_pull_request: false,
+          requires_linear_history: true,
+        },
+      ],
+      workflows+: {
+        actions_can_approve_pull_request_reviews: false,
+      },
+    },
+    orgs.newRepo('sirius-legacy') {
+      allow_squash_merge: false,
+      default_branch: "master",
+      delete_branch_on_merge: false,
+      description: "Sirius Legacy: legacy (unmaintained) components from Sirius Desktop",
+      has_discussions: true,
+      has_projects: false,
+      has_wiki: false,
+      homepage: "https://www.eclipse.org/sirius/",
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('master') {
+          required_approving_review_count: 0,
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
     },
   ],
 }
