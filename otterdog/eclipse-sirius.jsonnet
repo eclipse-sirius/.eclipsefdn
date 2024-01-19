@@ -144,14 +144,16 @@ orgs.newOrg('eclipse-sirius') {
       },
     },
     orgs.newRepo('sirius-legacy') {
+      archived: true,
       allow_squash_merge: false,
       default_branch: "master",
       delete_branch_on_merge: false,
       description: "Sirius Legacy: legacy (unmaintained) components from Sirius Desktop",
-      has_discussions: true,
+      has_discussions: false,
       has_projects: false,
       has_wiki: false,
       homepage: "https://eclipse.dev/sirius/",
+      has_issues: false,
       workflows+: {
         default_workflow_permissions: "write",
       },
