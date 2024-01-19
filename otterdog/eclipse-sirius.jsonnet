@@ -2,7 +2,7 @@ local orgs = import 'vendor/otterdog-defaults/otterdog-defaults.libsonnet';
 
 orgs.newOrg('eclipse-sirius') {
   settings+: {
-    blog: "https://www.eclipse.dev/sirius",
+    blog: "https://eclipse.dev/sirius",
     dependabot_alerts_enabled_for_new_repositories: false,
     dependabot_security_updates_enabled_for_new_repositories: false,
     dependency_graph_enabled_for_new_repositories: false,
@@ -34,7 +34,7 @@ orgs.newOrg('eclipse-sirius') {
       has_discussions: true,
       has_projects: false,
       has_wiki: false,
-      homepage: "https://www.eclipse.org/sirius/",
+      homepage: "https://eclipse.dev/sirius/",
       workflows+: {
         default_workflow_permissions: "write",
       },
@@ -53,7 +53,7 @@ orgs.newOrg('eclipse-sirius') {
       delete_branch_on_merge: false,
       dependabot_alerts_enabled: false,
       description: "JSON-based EMF Resource implementation - part of Eclipse Sirius",
-      homepage: "https://www.eclipse.org/sirius/sirius-web.html",
+      homepage: "https://eclipse.dev/sirius/sirius-web.html",
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "write",
@@ -79,7 +79,7 @@ orgs.newOrg('eclipse-sirius') {
       dependabot_security_updates_enabled: true,
       description: "Reusable frontend and backend components for Sirius Web",
       has_discussions: true,
-      homepage: "https://www.eclipse.org/sirius/sirius-web.html",
+      homepage: "https://eclipse.dev/sirius/sirius-web.html",
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "write",
@@ -122,7 +122,7 @@ orgs.newOrg('eclipse-sirius') {
       description: "Sources of the Eclipse Sirius website",
       has_projects: false,
       has_wiki: false,
-      homepage: "https://www.eclipse.org/sirius",
+      homepage: "https://eclipse.dev/sirius",
       web_commit_signoff_required: false,
       workflows+: {
         enabled: false,
@@ -152,8 +152,8 @@ orgs.newOrg('eclipse-sirius') {
       has_discussions: false,
       has_projects: false,
       has_wiki: false,
+      homepage: "https://eclipse.dev/sirius/",
       has_issues: false,
-      homepage: "https://www.eclipse.org/sirius/",
       workflows+: {
         default_workflow_permissions: "write",
       },
