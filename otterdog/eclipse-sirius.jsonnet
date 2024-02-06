@@ -84,20 +84,6 @@ orgs.newOrg('eclipse-sirius') {
       workflows+: {
         default_workflow_permissions: "write",
       },
-      webhooks: [
-        orgs.newRepoWebhook('https://notify.travis-ci.org') {
-          events+: [
-            "create",
-            "delete",
-            "issue_comment",
-            "member",
-            "public",
-            "pull_request",
-            "push",
-            "repository"
-          ],
-        },
-      ],
       secrets: [
         orgs.newRepoSecret('STAGING_AWS_ACCESS_KEY_ID') {
           value: "********",
