@@ -84,20 +84,6 @@ orgs.newOrg('eclipse-sirius') {
       workflows+: {
         default_workflow_permissions: "write",
       },
-      webhooks: [
-        orgs.newRepoWebhook('https://notify.travis-ci.org') {
-          events+: [
-            "create",
-            "delete",
-            "issue_comment",
-            "member",
-            "public",
-            "pull_request",
-            "push",
-            "repository"
-          ],
-        },
-      ],
       secrets: [
         orgs.newRepoSecret('STAGING_AWS_ACCESS_KEY_ID') {
           value: "********",
@@ -119,13 +105,27 @@ orgs.newOrg('eclipse-sirius') {
       allow_update_branch: false,
       default_branch: "master",
       delete_branch_on_merge: false,
-      description: "Sources of the Eclipse Sirius website",
+      description: "Eclipse Sirius website",
       has_projects: false,
       has_wiki: false,
       homepage: "https://eclipse.dev/sirius",
       web_commit_signoff_required: false,
       workflows+: {
         enabled: false,
+      },
+    },
+    orgs.newRepo('sirius-website-sources') {
+      allow_squash_merge: false,
+      allow_update_branch: false,
+      default_branch: "main",
+      delete_branch_on_merge: false,
+      description: "Sources of the Eclipse Sirius website",
+      has_projects: false,
+      has_wiki: false,
+      homepage: "https://eclipse.dev/sirius",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
       },
     },
     orgs.newRepo('.github') {
