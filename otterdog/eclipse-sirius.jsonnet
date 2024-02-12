@@ -127,6 +127,11 @@ orgs.newOrg('eclipse-sirius') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+      secrets: [
+        orgs.newRepoSecret('GH_ACTION_TOKEN') {
+          value: "pass:bots/modeling.sirius/github.com/api-token",
+        },
+      ],
     },
     orgs.newRepo('.github') {
       allow_merge_commit: true,
