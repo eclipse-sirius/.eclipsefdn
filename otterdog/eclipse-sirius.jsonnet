@@ -26,6 +26,22 @@ orgs.newOrg('eclipse-sirius') {
     },
   ],
   _repositories+:: [
+    orgs.newRepo('.github') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      web_commit_signoff_required: false,
+      workflows+: {
+        actions_can_approve_pull_request_reviews: false,
+      },
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('master') {
+          required_approving_review_count: null,
+          requires_linear_history: true,
+          requires_pull_request: false,
+        },
+      ],
+    },
     orgs.newRepo('sirius-desktop') {
       allow_squash_merge: false,
       default_branch: "master",
@@ -58,6 +74,25 @@ orgs.newOrg('eclipse-sirius') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+    },
+    orgs.newRepo('sirius-legacy') {
+      archived: true,
+      default_branch: "master",
+      description: "Sirius Legacy: legacy (unmaintained) components from Sirius Desktop",
+      has_projects: false,
+      has_wiki: false,
+      homepage: "https://www.eclipse.org/sirius/",
+      secret_scanning_push_protection: "disabled",
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('master') {
+          required_approving_review_count: 0,
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
     },
     orgs.newRepo('sirius-specs') {
       allow_merge_commit: true,
@@ -117,7 +152,6 @@ orgs.newOrg('eclipse-sirius') {
     orgs.newRepo('sirius-website-sources') {
       allow_squash_merge: false,
       allow_update_branch: false,
-      default_branch: "main",
       delete_branch_on_merge: false,
       description: "Sources of the Eclipse Sirius website",
       has_projects: false,
@@ -130,43 +164,6 @@ orgs.newOrg('eclipse-sirius') {
       secrets: [
         orgs.newRepoSecret('GH_ACTION_TOKEN') {
           value: "pass:bots/modeling.sirius/github.com/api-token",
-        },
-      ],
-    },
-    orgs.newRepo('.github') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      web_commit_signoff_required: false,
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('master') {
-          requires_pull_request: false,
-          requires_linear_history: true,
-        },
-      ],
-      workflows+: {
-        actions_can_approve_pull_request_reviews: false,
-      },
-    },
-    orgs.newRepo('sirius-legacy') {
-      archived: true,
-      allow_squash_merge: false,
-      default_branch: "master",
-      delete_branch_on_merge: false,
-      description: "Sirius Legacy: legacy (unmaintained) components from Sirius Desktop",
-      has_discussions: false,
-      has_projects: false,
-      has_wiki: false,
-      homepage: "https://eclipse.dev/sirius/",
-      has_issues: false,
-      workflows+: {
-        default_workflow_permissions: "write",
-      },
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('master') {
-          required_approving_review_count: 0,
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
         },
       ],
     },
