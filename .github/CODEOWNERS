@@ -2,4 +2,4 @@
 *             @eclipse-sirius/eclipsefdn-releng
 
 # Otterdog related configurations are also owned by the security team.
-/otterdog/**  @eclipse-sirius/eclipsefdn-security @eclipse-sirius/eclipsefdn-releng
+/otterdog/**  @eclipse-sirius/eclipsefdn-security
