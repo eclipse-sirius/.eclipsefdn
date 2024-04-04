@@ -9,7 +9,6 @@ orgs.newOrg('eclipse-sirius') {
     description: "Sirius is a framework for building graphical modelers for dedicated DSLs, either for the desktop or the web.",
     name: "Eclipse Sirius",
     packages_containers_internal: false,
-    readers_can_create_discussions: true,
     twitter_username: "EclipseSirius",
     web_commit_signoff_required: false,
     workflows+: {
