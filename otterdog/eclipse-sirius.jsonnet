@@ -81,7 +81,6 @@ orgs.newOrg('eclipse-sirius') {
       has_projects: false,
       has_wiki: false,
       homepage: "https://www.eclipse.org/sirius/",
-      secret_scanning_push_protection: "disabled",
       workflows+: {
         default_workflow_permissions: "write",
       },
