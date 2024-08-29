@@ -107,7 +107,7 @@ orgs.newOrg('eclipse-sirius') {
       default_branch: "master",
       delete_branch_on_merge: false,
       dependabot_security_updates_enabled: true,
-      description: "Reusable frontend and backend components for Sirius Web",
+      description: "Sirius Web: open-source low-code platform to define custom web applications supporting your specific visual languages",
       has_discussions: true,
       homepage: "https://eclipse.dev/sirius/sirius-web.html",
       web_commit_signoff_required: false,
