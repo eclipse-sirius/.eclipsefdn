@@ -1,6 +1,6 @@
 local orgs = import 'vendor/otterdog-defaults/otterdog-defaults.libsonnet';
 
-orgs.newOrg('eclipse-sirius') {
+orgs.newOrg('modeling.sirius', 'eclipse-sirius') {
   settings+: {
     blog: "https://eclipse.dev/sirius",
     description: "Sirius is a framework for building graphical modelers for dedicated DSLs, either for the desktop or the web.",
