@@ -12,6 +12,20 @@ orgs.newOrg('modeling.sirius', 'eclipse-sirius') {
       default_workflow_permissions: "write",
     },
   },
+  secrets+: [
+    orgs.newOrgSecret('GPG_PASSPHRASE') {
+      value: "pass:bots/modeling.sirius/gpg/passphrase",
+    },
+    orgs.newOrgSecret('GPG_PRIVATE_KEY') {
+      value: "pass:bots/modeling.sirius/gpg/secret-subkeys.asc",
+    },
+    orgs.newOrgSecret('OSSRH_PASSWORD') {
+      value: "pass:bots/modeling.sirius/oss.sonatype.org/gh-token-password",
+    },
+    orgs.newOrgSecret('OSSRH_USERNAME') {
+      value: "pass:bots/modeling.sirius/oss.sonatype.org/gh-token-username",
+    },
+  ],
   webhooks+: [
     orgs.newOrgWebhook('https://ci.eclipse.org/sirius/github-webhook/') {
       content_type: "json",
