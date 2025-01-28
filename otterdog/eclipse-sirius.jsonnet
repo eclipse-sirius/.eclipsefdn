@@ -84,6 +84,13 @@ orgs.newOrg('modeling.sirius', 'eclipse-sirius') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('master') {
+          required_approving_review_count: 0,
+          requires_linear_history: true,
+          requires_pull_request: false,
+        },
+      ],
     },
     orgs.newRepo('sirius-legacy') {
       archived: true,
