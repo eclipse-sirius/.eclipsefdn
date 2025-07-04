@@ -25,6 +25,12 @@ orgs.newOrg('modeling.sirius', 'eclipse-sirius') {
     orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_USERNAME') {
       value: "pass:bots/modeling.sirius/central.sonatype.org/token-username",
     },
+    orgs.newOrgSecret('ORG_DOCKER_HUB_TOKEN') {
+      value: "pass:bots/modeling.sirius/docker.com/api-token",
+    },
+    orgs.newOrgSecret('ORG_DOCKER_HUB_USER') {
+      value: "pass:bots/modeling.sirius/docker.com/username",
+    },
   ],
   webhooks+: [
     orgs.newOrgWebhook('https://ci.eclipse.org/sirius/github-webhook/') {
