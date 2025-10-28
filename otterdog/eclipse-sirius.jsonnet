@@ -127,6 +127,13 @@ orgs.newOrg('modeling.sirius', 'eclipse-sirius') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('master') {
+          required_approving_review_count: 0,
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
     },
     orgs.newRepo('sirius-web') {
       allow_squash_merge: false,
@@ -170,6 +177,13 @@ orgs.newOrg('modeling.sirius', 'eclipse-sirius') {
       workflows+: {
         enabled: false,
       },
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          required_approving_review_count: 0,
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
     },
     orgs.newRepo('sirius-website-sources') {
       allow_squash_merge: false,
@@ -183,6 +197,13 @@ orgs.newOrg('modeling.sirius', 'eclipse-sirius') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          required_approving_review_count: 0,
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
       secrets: [
         orgs.newRepoSecret('GH_ACTION_TOKEN') {
           value: "pass:bots/modeling.sirius/github.com/api-token",
