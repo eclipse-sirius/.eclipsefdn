@@ -142,6 +142,7 @@ orgs.newOrg('modeling.sirius', 'eclipse-sirius') {
       delete_branch_on_merge: false,
       dependabot_security_updates_enabled: true,
       description: "Sirius Web: open-source low-code platform to define custom web applications supporting your specific visual languages",
+      gh_pages_build_type: "workflow",
       has_discussions: true,
       homepage: "https://eclipse.dev/sirius/sirius-web.html",
       web_commit_signoff_required: false,
@@ -161,6 +162,15 @@ orgs.newOrg('modeling.sirius', 'eclipse-sirius') {
           required_approving_review_count: 1,
           requires_linear_history: true,
           requires_strict_status_checks: true,
+        },
+      ],
+      environments: [
+        orgs.newEnvironment('github-pages') {
+          branch_policies+: [
+            "master",
+            "v*"
+          ],
+          deployment_branch_policy: "selected",
         },
       ],
     },
