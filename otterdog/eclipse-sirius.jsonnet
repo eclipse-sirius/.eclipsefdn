@@ -168,7 +168,7 @@ orgs.newOrg('modeling.sirius', 'eclipse-sirius') {
         orgs.newEnvironment('github-pages') {
           branch_policies+: [
             "master",
-            "v*"
+            "tag:v*"
           ],
           deployment_branch_policy: "selected",
         },
