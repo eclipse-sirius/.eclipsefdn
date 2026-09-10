@@ -98,6 +98,26 @@ orgs.newOrg('modeling.sirius', 'eclipse-sirius') {
         },
       ],
     },
+    orgs.newRepo('sirius-web-emf-generator') {
+      allow_squash_merge: false,
+      allow_update_branch: false,
+      default_branch: "main",
+      delete_branch_on_merge: false,
+      dependabot_alerts_enabled: false,
+      description: "",
+      homepage: "https://eclipse.dev/sirius/sirius-web.html",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          required_approving_review_count: 0,
+          requires_linear_history: true,
+          requires_pull_request: false,
+        },
+      ],
+    },
     orgs.newRepo('sirius-legacy') {
       archived: true,
       default_branch: "master",
