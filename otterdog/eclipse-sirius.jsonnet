@@ -112,9 +112,10 @@ orgs.newOrg('modeling.sirius', 'eclipse-sirius') {
       },
       branch_protection_rules: [
         orgs.newBranchProtectionRule('main') {
-          required_approving_review_count: 0,
+          required_approving_review_count: 1,
           requires_linear_history: true,
-          requires_pull_request: false,
+          requires_pull_request: true,
+          requires_strict_status_checks: true,
         },
       ],
     },
